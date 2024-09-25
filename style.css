@@ -1,0 +1,261 @@
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #7693AE;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll when sidebar is active */
+}
+
+/* Header Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Pastikan z-index tinggi agar navbar berada di atas konten lainnya */
+    background-color: #92afd7; /* Background tetap pada navbar */
+    padding: 0.625rem 1.25rem; /* Contoh padding dengan rem */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img.logo {
+    margin-right: 10px;
+    max-width: 5rem;
+}
+
+.navbar-brand a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Desktop Navbar Links (visible on larger screens) */
+.desktop-nav {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.desktop-nav li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.5s;
+}
+
+.desktop-nav li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+/* Menu toggle for small screens */
+.menu-toggle {
+    font-size: 1.875rem;
+    cursor: pointer;
+    color: #081629;
+    display: none; /* Hidden by default, only visible on small screens */
+}
+
+/* Sidebar (visible on small screens) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden on the left */
+    width: 250px;
+    height: 100%;
+    background-color: #92afd7;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.sidebar.active {
+    left: 0; /* Slide in from the left */
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header img {
+    display: block;
+    margin: 0 auto;
+}
+
+.sidebar-brand {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-links li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+.navbar-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    font-size: 18px;
+}
+
+.navbar-links li a:hover {
+    margin-right: 10px;
+    background-color: #575757;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+/* Hide sidebar and show desktop navbar on large screens */
+@media (min-width: 769px) {
+    .navbar-links.sidebar {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Show sidebar and hide desktop navbar on small screens */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-links li a {
+        margin-right: 10px;
+        background-color: #7693AE;
+        border-radius: 0.5rem;
+    }
+}
+/* Hero Section */
+section.Hero {
+    text-align: center;
+    background-color: #c5d1eb;
+    padding: 9rem;
+}
+
+section.Hero h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+section.Hero p {
+    margin-top: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Application's */
+.app {
+    padding: 50px 20px;
+    background-color: #7693AE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.app img {
+    max-width: 25%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column; /* Stack content vertically by default */
+    align-items: center;
+    font-size: 25px;
+    margin: 1.1rem;
+    padding: 3.75rem;
+    background-color: rgba(255, 255, 255, 0.046);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    flex: 1;
+    max-width: 50%;
+}
+
+.box h2 {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+
+    .box {
+        max-width: 100%;
+        flex-direction: column; /* Stack the heading and content vertically on small screens */
+        text-align: center;
+    }
+
+    .box h2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.Button {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #4A696A; /* Match the service box background */
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.Button:hover {
+    background-color: #576564; /* Slightly different shade for hover */
+    transform: scale(1.05); /* Slight scale-up effect */
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+}
